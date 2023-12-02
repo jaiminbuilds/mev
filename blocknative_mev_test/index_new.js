@@ -1,4 +1,3 @@
-import WebSocket from 'ws'
 import BlocknativeSdk from 'bnc-sdk'
 import Web3 from 'web3'
 import dotenv from 'dotenv';
@@ -7,28 +6,16 @@ dotenv.config()
 
 const blocknativeApi = process.env.BLOCKNATIVE_API;
 const infuraApi = process.env.INFURA_API;
-console.log(infuraApi)
 
-const web3 = new Web3(`wss://mainnet.infura.io/ws/v3/${infuraApi}`)
+const web3 = new Web3(window.ethereum)
 
-// // create options object
-// const options = {
-//   dappId: blocknativeApi,
-//   networkId: 1,
-//   ws: WebSocket
-//   // un-comment if you would like to log all transaction events
-//   // transactionHandlers: [event => console.log(event.transaction)]
-// }
 // create options object
 const options = {
-    dappId: 'Your dappId here',
-    networkId: 1,
-    system: 'bitcoin', // optional, defaults to ethereum
-    transactionHandlers: [event => console.log(event.transaction)],
-    ws: WebSocket, // only neccessary in server environments 
-    name: 'Instance name here', // optional, use when running multiple instances
-    onerror: (error) => {console.log(error)} //optional, use to catch errors
-  }
+  dappId: blocknativeApi,
+  networkId: 4
+  // un-comment if you would like to log all transaction events
+  // transactionHandlers: [event => console.log(event.transaction)]
+}
 
 // initialize and connect to the api
 const blocknative = new BlocknativeSdk(options)
