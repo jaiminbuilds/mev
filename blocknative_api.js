@@ -16,6 +16,7 @@ const options = {
   // transactionHandlers: [event => console.log(event.transaction)]
 }
 
+
 // initialize and connect to the api
 const blocknative = new BlocknativeSdk(options)
 

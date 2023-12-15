@@ -1,3 +1,6 @@
 [submodule "sdk"]
 	path = sdk
 	url = https://github.com/blocknative/sdk.git
+[submodule "mev-templates"]
+	path = mev-templates
+	url = https://github.com/solidquant/mev-templates.git
